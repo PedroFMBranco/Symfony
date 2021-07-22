@@ -15,8 +15,17 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class UserController extends AbstractController
 {
-    public function showAction(SerializerInterface $serializer, UserRepository $repo): JsonResponse
+    public function showAction(SerializerInterface $serializer, UserRepository $repo, Request $request): JsonResponse
     {
+        if($userId = $request->get('userId')){
+            $user = $repo->findOneBy(['id' => $userId]);
+            if (!$user) {
+                return $this->response($serializer, "User not found", Response::HTTP_NOT_FOUND);
+            }
+
+            return $this->response($serializer, $user);
+        }
+
         $users = $repo->findAll();
         return $this->response($serializer, $users, (empty($users) ? Response::HTTP_NOT_FOUND : Response::HTTP_OK));
     }
@@ -50,10 +59,19 @@ class UserController extends AbstractController
         $form = $this->buildForm(UserType::class, $user, [
             'method' => $request->getMethod(),
         ]);
-        $form->handleRequest($request);
+        try {
+            $form->handleRequest($request);
+        }catch (\Exception $e){
+            return $this->response($serializer, "Error processing request", Response::HTTP_BAD_REQUEST);
+        }
+
 
         if (!$form->isSubmitted() || !$form->isValid()) {
-            return $this->response($serializer, $form, Response::HTTP_BAD_REQUEST);
+            if($form->getErrors()->count() === 0)
+                $error = "Error processing request";
+            else
+                $error = $form;
+            return $this->response($serializer, $error, Response::HTTP_BAD_REQUEST);
         }
 
         /** @var User $user */

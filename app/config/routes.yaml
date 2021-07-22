@@ -1,8 +1,9 @@
 # config/routes.yaml
 api_users_list:
-  path:       /api/users
+  path:       /api/users/{userId}
   controller: App\Controller\UserController::showAction
   methods:    GET
+  defaults: { userId: null }
 
 api_users_store:
   path:       /api/users

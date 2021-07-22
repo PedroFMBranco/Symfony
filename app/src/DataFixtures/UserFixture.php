@@ -18,20 +18,18 @@ class UserFixture extends Fixture
 
     public function load(ObjectManager $manager) {
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $manager->persist($this->getUser());
         }
         $manager->flush();
     }
 
-    private function getUser() {
+    private function getUser(): User {
 
-        return new User(
-            $this->faker->firstName(),
+        return (new User())->create( $this->faker->firstName(),
             $this->faker->lastName(),
             $this->faker->phoneNumber(),
             $this->faker->email(),
-            $this->faker->address()
-        );
+            $this->faker->address());
     }
 }

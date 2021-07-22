@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 class UserType extends AbstractType
@@ -20,17 +21,23 @@ class UserType extends AbstractType
                 'constraints' => [
                     new NotNull([
                         'message' => 'First name can not be blank',
+                    ]),new NotBlank([
+                        'message' => 'First name can not be blank',
                     ])
                 ]
             ])->add('last_name', TextType::class, [
                 'constraints' => [
                     new NotNull([
                         'message' => 'Last name can not be blank',
-                    ])
+                    ]),new NotBlank([
+                        'message' => 'Last name can not be blank',
+                    ]), new NotBlank()
                 ]
             ])->add('email', EmailType::class, [
                 'constraints' => [
                     new NotNull([
+                        'message' => 'First name can not be blank',
+                    ]),new NotBlank([
                         'message' => 'First name can not be blank',
                     ]), new Email()
                 ]
@@ -38,11 +45,15 @@ class UserType extends AbstractType
                 'constraints' => [
                     new NotNull([
                         'message' => 'Phone number can not be blank',
+                    ]),new NotBlank([
+                        'message' => 'Phone number can not be blank',
                     ])
                 ]
             ])->add('address', TextType::class, [
                 'constraints' => [
                     new NotNull([
+                        'message' => 'Address can not be blank',
+                    ]),new NotBlank([
                         'message' => 'Address can not be blank',
                     ])
                 ]

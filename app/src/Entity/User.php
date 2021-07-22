@@ -42,7 +42,20 @@ class User
      */
     private $address;
 
+    public function create(string $first_name ,
+                                string $last_name ,
+                                string $phone_number ,
+                                string $email ,
+                                string $address )
+    {
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->phone_number = $phone_number;
+        $this->email = $email;
+        $this->address = $address;
 
+        return $this;
+    }
 
     public function getId(): ?int
     {
