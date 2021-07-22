@@ -1,0 +1,20 @@
+# config/routes.yaml
+api_users_list:
+  path:       /api/users
+  controller: App\Controller\UserController::showAction
+  methods:    GET
+
+api_users_store:
+  path:       /api/users
+  controller: App\Controller\UserController::createAction
+  methods:    POST
+
+api_users_update:
+  path:       /api/users/{userId}
+  controller: App\Controller\UserController::patchAction
+  methods:    PATCH
+
+api_users_delete:
+  path:       /api/users/{userId}
+  controller: App\Controller\UserController::deleteAction
+  methods:    DELETE
