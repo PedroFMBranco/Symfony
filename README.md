@@ -9,6 +9,10 @@ Run the following command in the terminal:
     docker-compose up -d --build
 
 
+Install dependencies:
+    
+    docker exec php bash -c "compose update"
+
 Initialize the database:
     
     docker exec php bash -c "symfony console doctrine:migrations:migrate -n"
