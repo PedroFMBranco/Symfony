@@ -20,17 +20,17 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $first_name;
+    private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $last_name;
+    private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $phone_number;
+    private $phoneNumber;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -42,15 +42,15 @@ class User
      */
     private $address;
 
-    public function create(string $first_name ,
-                                string $last_name ,
-                                string $phone_number ,
-                                string $email ,
-                                string $address )
+    public function create(string $firstName,
+                           string $lastName,
+                           string $phoneNumber,
+                           string $email,
+                           string $address)
     {
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->phone_number = $phone_number;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->phoneNumber = $phoneNumber;
         $this->email = $email;
         $this->address = $address;
 
@@ -64,36 +64,36 @@ class User
 
     public function getFirstName(): ?string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
-    public function setFirstName(string $first_name): self
+    public function setFirstName(string $firstName): self
     {
-        $this->first_name = $first_name;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
     public function getLastName(): ?string
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
-    public function setLastName(string $last_name): self
+    public function setLastName(string $lastName): self
     {
-        $this->last_name = $last_name;
+        $this->lastName = $lastName;
 
         return $this;
     }
 
     public function getPhoneNumber(): ?string
     {
-        return $this->phone_number;
+        return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(string $phone_number): self
+    public function setPhoneNumber(string $phoneNumber): self
     {
-        $this->phone_number = $phone_number;
+        $this->phoneNumber = $phoneNumber;
 
         return $this;
     }

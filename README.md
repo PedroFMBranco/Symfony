@@ -11,11 +11,11 @@ Run the following command in the terminal:
 
 Initialize the database:
     
-    docker exec php bash -c "cd /var/www/symfony_docker ; symfony console doctrine:migrations:migrate -n"
+    docker exec php bash -c "symfony console doctrine:migrations:migrate -n"
 
 (Optional) Load the fixtures:
 
-    docker exec php bash -c "cd /var/www/symfony_docker ; symfony console doctrine:fixtures:load -n"
+    docker exec php bash -c "symfony console doctrine:fixtures:load -n"
 
 
 The service should now be available through http://localhost:8000/api
@@ -168,3 +168,17 @@ The service should now be available through http://localhost:8000/api
     HTTP/1.1 404 Not Found
 
     {"message": "User not found"}
+
+
+
+#Testing
+
+Setup test database
+    
+     docker exec php bash -c "php bin/console --env=test doctrine:database:create"
+     docker exec php bash -c "php bin/console --env=test doctrine:schema:create"
+
+
+Run tests
+
+    docker exec php bash -c "./vendor/bin/simple-phpunit"
