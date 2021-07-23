@@ -41,9 +41,9 @@ The service should now be available through http://localhost:8000/api
        [
             {
                    "id":1,
-                   "first_name":"Foo",
-                   "last_name":"bar",
-                   "phone_number":"+351 912 345 678",
+                   "firstName":"Foo",
+                   "lastName":"bar",
+                   "phoneNumber":"+351 912 345 678",
                    "email": "email@email.com",
                    "address": "Fake Street 123"
                }
@@ -55,7 +55,7 @@ The service should now be available through http://localhost:8000/api
 
 `POST /api/users`
 
-    curl -X POST http://localhost:8080/api/users -H "Content-Type: application/json" -d "{ \"first_name\": \"Foo\", \"last_name\": \"Bar\", \"phone_number\": \"+351 912 345 678\", \"address\": \"Fake Street\", \"email\": \"email@email.com\" }"
+    curl -X POST http://localhost:8080/api/users -H "Content-Type: application/json" -d "{ \"firstName\": \"Foo\", \"lastName\": \"Bar\", \"phoneNumber\": \"+351 912 345 678\", \"address\": \"Fake Street\", \"email\": \"email@email.com\" }"
 
 ### Response
 
@@ -63,9 +63,9 @@ The service should now be available through http://localhost:8000/api
 
     {
        "id":1,
-       "first_name":"Foo",
-       "last_name":"bar",
-       "phone_number":"+351 912 345 678",
+       "firstName":"Foo",
+       "lastName":"bar",
+       "phoneNumber":"+351 912 345 678",
        "email": "email@email.com",
        "address": "Fake Street 123"
    }
@@ -84,9 +84,9 @@ The service should now be available through http://localhost:8000/api
 
     {
        "id":1,
-       "first_name":"Foo",
-       "last_name":"bar",
-       "phone_number":"+351 912 345 678",
+       "firstName":"Foo",
+       "lastName":"bar",
+       "phoneNumber":"+351 912 345 678",
        "email": "email@email.com",
        "address": "Fake Street 123"
    }
@@ -112,7 +112,7 @@ The service should now be available through http://localhost:8000/api
 
 `PATCH /api/users/{id}`
 
-    curl -X PATCH http://localhost:8080/api/users/1 -H "Content-Type: application/json" -d "{ \"first_name\": \"Not Foo\" }"
+    curl -X PATCH http://localhost:8080/api/users/1 -H "Content-Type: application/json" -d "{ \"firstName\": \"Not Foo\" }"
 
 
 ### Response
@@ -121,9 +121,9 @@ The service should now be available through http://localhost:8000/api
     
         {
            "id":1,
-           "first_name":"Not Foo",
-           "last_name":"bar",
-           "phone_number":"+351 912 345 678",
+           "firstName":"Not Foo",
+           "lastName":"bar",
+           "phoneNumber":"+351 912 345 678",
            "email": "email@email.com",
            "address": "Fake Street 123"
        }
@@ -134,7 +134,7 @@ The service should now be available through http://localhost:8000/api
 
 `PATCH /api/users/{id}`
 
-    curl -X PATCH http://localhost:8080/api/users/1 -H "Content-Type: application/json" -d "{ \"not_first_name\": \"Not Foo\" }"
+    curl -X PATCH http://localhost:8080/api/users/1 -H "Content-Type: application/json" -d "{ \"not_firstName\": \"Not Foo\" }"
 
 ### Response
 
