@@ -11,7 +11,7 @@ Run the following command in the terminal:
 
 Install dependencies:
     
-    docker exec php bash -c "compose update"
+    docker exec php bash -c "composer update"
 
 Initialize the database:
     
